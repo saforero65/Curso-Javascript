@@ -13,55 +13,70 @@ Crea una función que pida un género y muestre la información de los libros qu
 */
 class Libro {
     constructor(titulo, autor, año, genero) {
-        this.titulo = titulo
-        this.autor = autor
-        this.año = año
-        this.genero = genero
+        this.titulo = titulo;
+        this.autor = autor;
+        this.año = año;
+        this.genero = genero;
     }
-    getAutor() {
+    get_autor() {
         return this.autor
-    }
-    getGenero() {
+    };
+    get_genero() {
         return this.genero
-    }
-    print() {
-        return `Titulo: ${titulo}\nAutor: ${autor}\nAño: ${año}\nGenero: ${genero}\n`
-    }
-}
-let libros = []
-while (libros.length < 3) {
-    let titulo = prompt(`introduce el titulo del librro`)
-    let autor = prompt(`introduce el autor del librro`)
-    let año = prompt(`introduce el año del librro`)
-    let genero = prompt(`introduce el genero del librro`).toLowerCase()
-    if (titulo != '' && autor != '' && !isNaN(año) && año.length == 4 && (genero == 'aventura' || genero == 'terror' || genero == 'fantasia')) {
-        libros.push(new Libro(titulo, autor, año, genero))
+    };
+    mostar() {
+        return `${this.titulo}${this.autor}${this.año}${this.genero}`;
     }
 }
-const showbooks = () => {
+libros = new Array();
+for (var i = 1; i <= 3; i++) {
+    titulo_libro = prompt("Ingrese el titulo");
+    autor_libro = prompt("Ingrese el autor");
+    año_libro = prompt("Ingrese el año");
+    genero_libro = prompt("Ingrese el genero").toLowerCase();
 
-    console.log(libros)
 
+    if (
+        titulo_libro != "" &&
+        autor_libro != "" &&
+        !isNaN(año_libro) &&
+        año_libro.length == 4 &&
+        (genero_libro == "aventura" ||
+            genero_libro == "error" ||
+            genero_libro == "fantasía")
+    ) {
+        const libro = new Libro(titulo_libro, autor_libro, año_libro, genero_libro);
+        libros.push(libro);
+    } else {
+        i--
+        console.log("error")
+        console.log(titulo_libro, autor_libro, año_libro, genero_libro)
+    }
 }
-const showActor = () => {
+const mostrar_libros = () => {
+    console.log(libros);
+};
+const mostar_autores = () => {
     let autores = []
-
-    for (const libro of libros) {
-        autores.push(libro.getAutor())
-            // console.log(libro.autor)
-            // console.log(libro.getAutor())
+    for (const book of libros) {
+        autores.push(book.get_autor());
     }
     console.log(autores.sort())
-        // console.log(object)
-}
-const showGenero = () => {
-        const genero = prompt(`introudce el genero a buscar`)
-        for (const libro of libros) {
-            if (libro.getGenero() == genero) {
-                console.log(libro.print())
-            }
+
+};
+const mostar_generos = () => {
+    const genero = prompt('Introduce el género a buscar')
+
+
+    for (const libro of libros) {
+        if (libro.get_genero() == genero) {
+            console.log(libro.mostar())
         }
     }
-    // showbooks();
-    // showActor()
-showGenero();
+};
+
+
+
+mostrar_libros()
+mostar_autores()
+mostar_generos()

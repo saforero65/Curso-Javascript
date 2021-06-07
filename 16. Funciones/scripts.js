@@ -1,21 +1,21 @@
-// function saludar() {
-//     console.log('Hola');
-// }
+// // function saludar() {
+// //     console.log("Hola")
+// // }
+// const saludar = () => console.log("Hola")
+// const saludar_usuario = (user) => console.log(`Hola ${user}`)
+// nombre_usuario = 'Santiago'
+// saludar_usuario(nombre_usuario)
+// saludar_usuario("nombre_usuario")
+// saludar()
+// saludar()
 // saludar()
 
-// const saludar = () => console.log('Hola')
-// const saludarUsuario = (user) => console.log(`Hola ${user}`)
-// saludarUsuario('Pepe')
-// saludarUsuario('Marta')
-
-// const suma = (num1, num2) => {
-//     if (num1 == 2) {
-//         return num1 + num2
-//     }
-//     return num1
-// }
-// console.log(suma(8, 5))
 const suma = (num1, num2) => num1 + num2
 
-let result = suma(3, 6)
-console.log(result)
+const suma_2 = (num1, num2) => {
+    if (num1 == 2) {
+        return num1 + num2
+    }
+    return "num1 no es 2"
+}
+console.log(suma_2(2, 3))
